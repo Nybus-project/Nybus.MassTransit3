@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution", ".solution", "{
 		packages.config = packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration", "tests\Tests.Integration\Tests.Integration.csproj", "{F30DBAF1-6EFE-4C5F-BB47-7BE03146DBBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{88B70182-AED1-426A-9744-8C0CB092A1F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88B70182-AED1-426A-9744-8C0CB092A1F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88B70182-AED1-426A-9744-8C0CB092A1F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30DBAF1-6EFE-4C5F-BB47-7BE03146DBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30DBAF1-6EFE-4C5F-BB47-7BE03146DBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30DBAF1-6EFE-4C5F-BB47-7BE03146DBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30DBAF1-6EFE-4C5F-BB47-7BE03146DBBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,5 +46,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2B9762EA-8A1C-4653-9B05-0BCE380D5E2D} = {62CD2AE2-9B33-4752-9A69-648E4578BCD4}
 		{88B70182-AED1-426A-9744-8C0CB092A1F1} = {B379E4F2-6849-4B8C-9687-C22FE085AEC3}
+		{F30DBAF1-6EFE-4C5F-BB47-7BE03146DBBA} = {B379E4F2-6849-4B8C-9687-C22FE085AEC3}
 	EndGlobalSection
 EndGlobal
