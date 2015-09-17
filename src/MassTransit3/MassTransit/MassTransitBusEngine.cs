@@ -21,6 +21,7 @@ namespace Nybus.MassTransit
         {
             if (connectionHandler == null) throw new ArgumentNullException(nameof(connectionHandler));
             if (options == null) throw new ArgumentNullException(nameof(options));
+
             _connectionHandler = connectionHandler;
             _options = options;
 
@@ -31,21 +32,53 @@ namespace Nybus.MassTransit
         {
             var host = _connectionHandler.ConfigureHost(cfg);
 
-            cfg.ReceiveEndpoint(host, _options.EventQueueStrategy.GetQueueName(), epc =>
-            {
-                _options.EventQueueStrategy.ConfigureQueue(epc);
-                _eventEndpointConfigurator = epc;
-            });
+            CreateReceiveEndpoint(cfg, host, _options.CommandQueueStrategy, ref _eventEndpointConfigurator);
 
-            cfg.ReceiveEndpoint(host, _options.CommandQueueStrategy.GetQueueName(), epc =>
-            {
-                _options.CommandQueueStrategy.ConfigureQueue(epc);
-                _commandEndpointConfigurator = epc;
-            });
+            cfg.UseJsonSerializer();
+
+            //CreateReceiveEndpoint(cfg, host, _options.CommandQueueStrategy, ref _commandEndpointConfigurator);
+
+            //cfg.ReceiveEndpoint(host, _options.EventQueueStrategy.GetQueueName(), epc =>
+            //{
+            //    _options.EventQueueStrategy.ConfigureQueue(epc);
+            //    _eventEndpointConfigurator = epc;
+            //});
+
+            //cfg.ReceiveEndpoint(host, _options.CommandQueueStrategy.GetQueueName(), epc =>
+            //{
+            //    _options.CommandQueueStrategy.ConfigureQueue(epc);
+            //    _commandEndpointConfigurator = epc;
+            //});
         }
 
         private IRabbitMqReceiveEndpointConfigurator _eventEndpointConfigurator;
         private IRabbitMqReceiveEndpointConfigurator _commandEndpointConfigurator;
+
+        private void CreateReceiveEndpoint(IRabbitMqBusFactoryConfigurator factoryConfigurator, IRabbitMqHost host, IQueueStrategy queueStrategy, ref IRabbitMqReceiveEndpointConfigurator endpointConfigurator)
+        {
+            string queueName = queueStrategy.GetQueueName();
+
+            IRabbitMqReceiveEndpointConfigurator newEpc = null;
+
+            if (!string.IsNullOrEmpty(queueName))
+            {
+                factoryConfigurator.ReceiveEndpoint(host, queueName, epc =>
+                {
+                    queueStrategy.ConfigureQueue(epc);
+                    newEpc = epc;
+                });
+            }
+            else
+            {
+                factoryConfigurator.ReceiveEndpoint(host, epc =>
+                {
+                    queueStrategy.ConfigureQueue(epc);
+                    newEpc = epc;
+                });
+            }
+
+            endpointConfigurator = newEpc;
+        }
 
         public async Task SendCommand<TCommand>(CommandMessage<TCommand> message) where TCommand : class, ICommand
         {

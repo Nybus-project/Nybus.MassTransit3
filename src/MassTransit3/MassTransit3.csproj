@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="MassTransit\IConnectionHandler.cs" />
     <Compile Include="MassTransit\IMassTransitOptions.cs" />
+    <Compile Include="MassTransit\IQueueStrategy.cs" />
     <Compile Include="MassTransit\MassTransitBusEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

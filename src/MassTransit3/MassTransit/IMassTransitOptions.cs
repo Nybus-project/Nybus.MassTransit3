@@ -13,17 +13,11 @@ namespace Nybus.MassTransit
 
     public class MassTransitOptions : IMassTransitOptions
     {
-        public IQueueStrategy CommandQueueStrategy { get; set; }
+        public IQueueStrategy CommandQueueStrategy { get; set; } = new StaticQueueStrategy("MyCommands");
 
-        public IQueueStrategy EventQueueStrategy { get; set; }
+        public IQueueStrategy EventQueueStrategy { get; set; } = new TemporaryQueueStrategy();
 
         public IContextManager ContextManager { get; set; }
-    }
-
-    public interface IQueueStrategy
-    {
-        string GetQueueName();
-        void ConfigureQueue(IRabbitMqReceiveEndpointConfigurator endPointConfiguration);
     }
 
     public interface IContextManager
