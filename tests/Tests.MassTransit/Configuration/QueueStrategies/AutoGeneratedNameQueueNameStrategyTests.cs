@@ -12,7 +12,7 @@ namespace Tests.Configuration.QueueStrategies
         [SetUp]
         public void Initialize()
         {
-            new Fixture();
+            _fixture = new Fixture();
         }
 
         [Test]

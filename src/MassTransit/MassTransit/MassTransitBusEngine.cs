@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MassTransit;
+using Nybus.Configuration.ServiceBusFactories;
 using Nybus.Logging;
 
 namespace Nybus.MassTransit
 {
     public class MassTransitBusEngine : IBusEngine
     {
+        private readonly IServiceBusFactory _serviceBusFactory;
         private readonly MassTransitOptions _options;
         private Status _status = Status.New;
         private readonly ILogger _logger;
 
-        public MassTransitBusEngine(MassTransitOptions options)
+        public MassTransitBusEngine(IServiceBusFactory serviceBusFactory, MassTransitOptions options)
         {
+            if (serviceBusFactory == null) throw new ArgumentNullException(nameof(serviceBusFactory));
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
+            _serviceBusFactory = serviceBusFactory;
             _options = options;
 
             _logger = options.LoggerFactory.CreateLogger(nameof(MassTransitBusEngine));
@@ -112,7 +116,7 @@ namespace Nybus.MassTransit
             {
                 _logger.LogVerbose("Bus engine starting");
 
-                var bus = _options.ServiceBusFactory.CreateServiceBus(_options, _commandSubscriptions, _eventSubscriptions);
+                var bus = _serviceBusFactory.CreateServiceBus(_options, _commandSubscriptions, _eventSubscriptions);
                 var handle = await bus.StartAsync();
 
                 _bus = bus;

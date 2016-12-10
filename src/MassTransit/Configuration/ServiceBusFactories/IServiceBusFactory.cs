@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using MassTransit;
-using MassTransit.RabbitMqTransport;
 using Nybus.MassTransit;
 
 namespace Nybus.Configuration.ServiceBusFactories

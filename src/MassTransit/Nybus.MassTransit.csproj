@@ -38,10 +38,6 @@
       <HintPath>..\..\packages\MassTransit.3.5.0\lib\net452\MassTransit.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MassTransit.RabbitMqTransport, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MassTransit.RabbitMQ.3.5.0\lib\net452\MassTransit.RabbitMqTransport.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NewId, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NewId.3.0.0\lib\net452\NewId.dll</HintPath>
       <Private>True</Private>
@@ -52,10 +48,6 @@
     </Reference>
     <Reference Include="Nybus.Interfaces, Version=0.6.0.97, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nybus.Interfaces.0.6.0.97\lib\net46\Nybus.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="RabbitMQ.Client, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RabbitMQ.Client.4.1.1\lib\net451\RabbitMQ.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -76,12 +68,6 @@
     <Compile Include="Configuration\ServiceBusFactories\IServiceBusFactory.cs" />
     <Compile Include="Configuration\QueueNameStrategies\StaticQueueNameStrategy.cs" />
     <Compile Include="Configuration\ServiceBusFactories\Loopback\LoopbackServiceBusFactory.cs" />
-    <Compile Include="Configuration\ServiceBusFactories\RabbitMq\QueuePolicies\CustomQueuePolicy.cs" />
-    <Compile Include="Configuration\ServiceBusFactories\RabbitMq\QueuePolicies\DurableQueuePolicty.cs" />
-    <Compile Include="Configuration\ServiceBusFactories\RabbitMq\QueuePolicies\IQueuePolicy.cs" />
-    <Compile Include="Configuration\ServiceBusFactories\RabbitMq\RabbitMqOptions.cs" />
-    <Compile Include="Configuration\ServiceBusFactories\RabbitMq\QueuePolicies\TransientQueuePolicy.cs" />
-    <Compile Include="Configuration\ServiceBusFactories\RabbitMq\RabbitMqServiceBusFactory.cs" />
     <Compile Include="MassTransit\MassTransitBusEngine.cs" />
     <Compile Include="MassTransit\MassTransitConnectionDescriptor.cs" />
     <Compile Include="MassTransit\MassTransitOptions.cs" />
@@ -90,7 +76,7 @@
     <Compile Include="Utils\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MassTransit.nuspec" />
+    <None Include="Nybus.MassTransit.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

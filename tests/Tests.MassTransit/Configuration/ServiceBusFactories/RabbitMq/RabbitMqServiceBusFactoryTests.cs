@@ -41,15 +41,5 @@ namespace Tests.Configuration.ServiceBusFactories.RabbitMq
         {
             return new RabbitMqServiceBusFactory(_connectionDescriptor, _options);
         }
-
-        [Test]
-        public void A()
-        {
-            var sut = CreateSystemUnderTest();
-
-            var mtOptions = new MassTransitOptions();
-
-            var bus = sut.CreateServiceBus(mtOptions, new List<Action<IReceiveEndpointConfigurator>>(), new List<Action<IReceiveEndpointConfigurator>>());
-        }
     }
 }
