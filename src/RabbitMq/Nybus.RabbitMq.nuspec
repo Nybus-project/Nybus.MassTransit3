@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Nybus.MassTransit.RabbitMq</id>
+        <version>$version$</version>
+        <title>Nybus MassTransit</title>
+        <authors>Renato Golia</authors>
+        <owners>Renato Golia</owners>
+        <licenseUrl>https://github.com/Nybus-project/Nybus/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Nybus-project/Nybus</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Nybus bus based on RabbitMq and MassTransit 3</description>
+        <language>en-US</language>
+        <dependencies>
+            <dependency id="MassTransit" version="[3.50,4)" />
+            <dependency id="MassTransit.RabbitMQ" version="[3.50,4)" />
+        </dependencies>
+    </metadata>
+</package>
