@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit3", "src\MassTransit3\MassTransit3.csproj", "{2B9762EA-8A1C-4653-9B05-0BCE380D5E2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nybus.MassTransit", "src\MassTransit\Nybus.MassTransit.csproj", "{2B9762EA-8A1C-4653-9B05-0BCE380D5E2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{62CD2AE2-9B33-4752-9A69-648E4578BCD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B379E4F2-6849-4B8C-9687-C22FE085AEC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.MassTransit3", "tests\Tests.MassTransit3\Tests.MassTransit3.csproj", "{88B70182-AED1-426A-9744-8C0CB092A1F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.MassTransit", "tests\Tests.MassTransit\Tests.MassTransit.csproj", "{88B70182-AED1-426A-9744-8C0CB092A1F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution", ".solution", "{6E379E58-4793-48D1-AF4A-543708274AF8}"
 	ProjectSection(SolutionItems) = preProject
